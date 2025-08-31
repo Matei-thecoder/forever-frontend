@@ -47,7 +47,7 @@ export default function Signup(){
             return;
         }
         try{
-            await fetch('http://localhost:5000/signup', {
+            await fetch('https://forever-backend-m87a.onrender.com/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ export default function Signup(){
         
     };
     return(
-        <>
+        <div className='signup'>
         <Navbar />
                 <div className="signin-page">
                     <div className="login-container">
@@ -175,6 +175,6 @@ export default function Signup(){
                 </div>
                 
                 <Footer />
-        </>
+        </div>
     );
 }

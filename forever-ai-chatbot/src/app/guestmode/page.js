@@ -98,7 +98,7 @@ export default function Guestmode() {
     // fetch bot reply
     (async () => {
       try {
-        const res = await fetch("http://localhost:5000/chat/guestmode", {
+        const res = await fetch("https://forever-backend-m87a.onrender.com/chat/guestmode", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question: userMessage }),

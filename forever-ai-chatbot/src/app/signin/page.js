@@ -21,7 +21,7 @@ export default function Signin(){
         e.preventDefault();
         // Handle form submission logic here
         try{
-            await fetch('http://localhost:5000/login', {
+            await fetch('https://forever-backend-m87a.onrender.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export default function Signin(){
 
     };
     return(
-        <>
+        <div className='signin'>
         <Navbar />
         <div className="signin-page">
             <div className="login-container">
@@ -104,7 +104,7 @@ export default function Signin(){
         </div>
         
         <Footer />
-        </>
+        </div>
     );
 }
         

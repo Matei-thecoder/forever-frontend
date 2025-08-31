@@ -39,7 +39,7 @@ export default function Dashboard() {
         let res;
         let data;
         const fetchConversations = async () => {
-            res = await fetch("http://localhost:5000/chat/usermode/getAllConversations", {
+            res = await fetch("https://forever-backend-m87a.onrender.com/chat/usermode/getAllConversations", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function Dashboard() {
         console.log(userid);
         if(userid)
         {
-            const res = await fetch("http://localhost:5000/chat/usermode/startConvo", {
+            const res = await fetch("https://forever-backend-m87a.onrender.com/chat/usermode/startConvo", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

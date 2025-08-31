@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, use } from "react";
 import "./page.css";
 import Footer from "../components/footer";
 import { usePathname } from "next/navigation";
@@ -11,6 +11,7 @@ export default function Chat() {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]); // { type: 'user' | 'bot', text, loading? }
   const [convoid,setConvoid] = useState('');
+  const [loaded,setLoaded] = useState(false);
   const textareaRef = useRef(null);
   const contentRef = useRef(null);
   const router = useRouter();
@@ -78,7 +79,7 @@ export default function Chat() {
     const storedConvoId = localStorage.getItem("conversationId");
     setConvoid(storedConvoId);
     const getMessages = async() =>{
-        const res = await fetch("http://localhost:5000/chat/usermode/getConversation", {
+        const res = await fetch("https://forever-backend-m87a.onrender.com/chat/usermode/getConversation", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -89,6 +90,7 @@ export default function Chat() {
         });
         const data = await res.json();
         console.log(data.messages)
+        setLoaded(true);
         setMessages(data.messages);
     }
 
@@ -98,6 +100,7 @@ export default function Chat() {
         console.log("error");
         router.push('/signin');
     }
+    
   },[]);
 
   // scroll to bottom on new messages
@@ -131,7 +134,7 @@ export default function Chat() {
         // fetch bot reply
         (async () => {
         try {
-            const res = await fetch("http://localhost:5000/chat/usermode/sendMessage", {
+            const res = await fetch("https://forever-backend-m87a.onrender.com/chat/usermode/sendMessage", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -187,27 +190,37 @@ export default function Chat() {
         ref={contentRef}
         className="flex flex-col gap-2 p-4 overflow-y-auto h-[400px] bg-gray-50 rounded-md"
       >
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={`break-words px-4 py-2 rounded-lg ${
-              msg.role === "user"
-                ? "self-end bg-[#71AD8D] text-white max-w-xs"
-                : "self-start bg-gray-200 text-gray-800 max-w-[70%]"
-            }`}
-          >
-            {msg.loading ? (
-              <span className="inline-flex items-center gap-2">
-                Loading
-                <span className="inline-block animate-pulse">●●●</span>
-              </span>
-            ) : msg.role === "bot" ? (
-              renderBotText(msg.content)
-            ) : (
-              msg.content
-            )}
-          </div>
-        ))}
+            {loaded ? (
+                messages.map((msg, i) => (
+                    <div
+                    key={i}
+                    className={`break-words px-4 py-2 rounded-lg ${
+                        msg.role === "user"
+                        ? "self-end bg-[#71AD8D] text-white max-w-xs"
+                        : "self-start bg-gray-200 text-gray-800 max-w-[70%]"
+                    }`}
+                    >
+                    {msg.loading ? (
+                        <span className="inline-flex items-center gap-2">
+                        Loading
+                        <span className="inline-block animate-pulse">●●●</span>
+                        </span>
+                    ) : msg.role === "bot" ? (
+                        renderBotText(msg.content)
+                    ) : (
+                        msg.content
+                    )}
+                    </div>
+                ))
+                ) : (
+                <div id="loader-container">
+                                 <p>Loading messages...</p>
+                                <div className="loader"></div>
+                               
+                                    
+                 </div>
+                )}
+          
       </div>
 
       <div id="input" className="mt-2">
