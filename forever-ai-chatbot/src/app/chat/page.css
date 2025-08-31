@@ -44,12 +44,12 @@
     width:70%;
    
     height: 70%;
-    flex-shrink: 1v;
+    
 
 }
 #input{
     width:70%;
-    height:10%;
+    height:15%;
     
     
 
@@ -78,10 +78,10 @@
 @media screen and (max-width: 640px) {
     #content {
         width: 95%;
-        height: 70%;
+        height: 62%;
     }
     #input {
         width: 95%;
-        height: 5vh;
+        height: 23%;
     }
 }
