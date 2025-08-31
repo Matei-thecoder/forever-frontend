@@ -24,7 +24,7 @@
     font-style: var(--primary-font-style);
 }
 .dashboard-container{
-    width:100%;
+    width:80%;
     height:100%;
     color:black;
     display:flex;
