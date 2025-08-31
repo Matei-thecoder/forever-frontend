@@ -1,0 +1,15 @@
+#footer-container{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: var(--secondary-background-color);
+    color: white;
+    font-family: var(--primary-font-family);
+    font-style: var(--primary-font-style);
+    font-size: 16px;
+    height:5%;
+    margin-top: 3%;
+    align-self: flex-end;
+}
