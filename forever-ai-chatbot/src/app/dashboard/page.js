@@ -3,7 +3,7 @@
 import './page.css';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { usePathname } from "next/navigation";
 
@@ -26,11 +26,11 @@ export default function Dashboard() {
          
         // reset state, re-run UI logic, etc.
     }, [pathname]);
-    let storedUserid;
+    
     useEffect(() => {
+        const storedUserid = localStorage.getItem("userid");
         const storedUsername = localStorage.getItem("username");
         const storedTier = localStorage.getItem("tier");
-        storedUserid = localStorage.getItem("userid");
         setUserid(storedUserid);
         setUsername(storedUsername);
         setTier(storedTier);
@@ -61,7 +61,7 @@ export default function Dashboard() {
         
         
         
-    }, []);
+    }, [router]);
 
     const startConvo = async() =>{
         console.log(userid);

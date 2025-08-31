@@ -101,7 +101,7 @@ export default function Chat() {
         router.push('/signin');
     }
     
-  },[]);
+  },[router]);
 
   // scroll to bottom on new messages
   useEffect(() => {

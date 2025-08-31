@@ -7,6 +7,8 @@ import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
+import Image from "next/image";
+
 export default function Home(){
 
   const router = useRouter();
@@ -54,7 +56,9 @@ export default function Home(){
               <h2 id="aboutme-title">About me</h2>
               <div id="line">.</div>
               <div id="aboutme-container">
-                <img src="/aboutmepic.png" alt="About me" id="aboutmepic"/>
+                <Image src="/aboutmepic.png" width={200}
+                height={200}
+                alt="About me" id="aboutmepic"/>
                 <p id="aboutmetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed quam ac lacus tempus 
                   lobortis ac sed felis. Aliquam et ultricies nisl. Vestibulum ante ipsum primis in faucibus 
                   orci luctus et ultrices posuere cubilia curae; Nunc vel dui et dolor lacinia placerat sed ut 
