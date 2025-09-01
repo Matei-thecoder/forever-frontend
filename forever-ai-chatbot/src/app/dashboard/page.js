@@ -15,6 +15,9 @@ export default function Dashboard() {
     const [userid, setUserid] = useState('');
     const [conversations, setConversations] = useState([]);
     const [conversationLoading, setConversationLoading] = useState(true);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [conversationToDelete, setConversationToDelete] = useState(null);
+
 
     const router = useRouter();
     const pathname = usePathname();
@@ -96,6 +99,7 @@ export default function Dashboard() {
         localStorage.setItem("conversationId", conversationId);
         router.push("/chat");
     }
+    
 
     return (
         <div className='dashboard'>
@@ -132,11 +136,26 @@ export default function Dashboard() {
                         ) : (
                             <div id="conversations-container">
                                 {[...conversations].reverse().map((conv, index) => (
-                                    <button key={index} id="conversation" onClick={() => handleConversationClick(conv.id)}>
+                                    <div key={index} className="conversation">
+                                    <button
+                                        className="conversation-button"
+                                        onClick={() => handleConversationClick(conv.id)}
+                                    >
                                         {conv.title}
                                     </button>
+                                    <button
+                                    className="delete-conversation"
+                                    onClick={() => {
+                                        setConversationToDelete(conv.id);
+                                        setShowDeleteModal(true);
+                                    }}
+                                    >
+                                    🗑
+                                    </button>
+
+                                    </div>
                                 ))}
-                            </div>
+                                </div>
 
                         )
                     ) : (
@@ -149,6 +168,53 @@ export default function Dashboard() {
                     )}
                     
                 </div>
+                {showDeleteModal && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                    <h3>Are you sure?</h3>
+                    <p>Do you really want to delete this conversation?</p>
+                    <div className="modal-buttons">
+                        <button
+                        className="cancel-btn"
+                        onClick={() => {
+                            setShowDeleteModal(false);
+                            setConversationToDelete(null);
+                        }}
+                        >
+                        Cancel
+                        </button>
+                        <button
+                        className="confirm-btn"
+                        onClick={async () => {
+                            if (conversationToDelete) {
+                            const res = await fetch("https://forever-backend-m87a.onrender.com/delete/conversation", {
+                                method: "DELETE",
+                                headers: {
+                                "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                conversation_id: conversationToDelete,
+                                }),
+                            });
+                            const data = await res.json();
+                            if (data.message === "success") {
+                                setConversations(conversations.filter(conv => conv.id !== conversationToDelete));
+                            } else {
+                                alert("Failed to delete conversation.");
+                            }
+                            }
+                            setShowDeleteModal(false);
+                            setConversationToDelete(null);
+                        }}
+                        >
+                        Delete
+                        </button>
+                        
+                    </div>
+                    </div>
+                </div>
+                )}
+
             </div>
             <Footer />
         </div>

@@ -13,7 +13,9 @@
 .dashboard{
     background-color: white;
     width:100vw;
+    
     height:100%;
+    
     display:flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +28,7 @@
 .dashboard-container{
     width:80%;
     height:100%;
+    
     color:black;
     display:flex;
     align-items: center;
@@ -127,7 +130,7 @@ h3{
 }
 #loader-container{
     width:100%;
-    height:100%;
+    height:35vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,4 +163,130 @@ h3{
     transform: translateY(-2px); /* subtle lift */
     background: #dbffdb; /* very light blue background */
     cursor: pointer;
+}
+#delete-conversation{
+    width:10%;
+    height:100%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    
+    cursor: pointer;
+}
+#conversation-button{
+    width:90%;
+    height:100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+#conversations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.conversation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* keeps trash aligned right */
+    padding: 6px 10px;
+   
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        
+}
+
+.conversation-button {
+  flex-grow: 1;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.delete-conversation {
+  background: transparent;
+  border: none;
+  color: red;
+  font-size: 16px;
+  cursor: pointer;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 20px;
+  gap:10px;
+}
+
+.confirm-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #ccc;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  background: darkred;
+}
+
+.cancel-btn:hover {
+  background: #aaa;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-container{
+        width:90%;
+    }
+    .conversation-list{
+        width:100vw;
+        height:30vh;
+    }
+    
 }
