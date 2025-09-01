@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root{
+    --primary-background-color:white;
+    --secondary-background-color: #A5E3C2;
+    --primary-font-family: "Poppins", sans-serif;
+    --primary-font-size: 16px;
+    --primary-font-style:"normal";
+}
+
+.settings{
+    background-color: #71AD8D;
+    width:100vw;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+    color:black;
+}
+
+.navbar{
+    background-color: #71AD8D;
+    width:100%;
+    height:20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.h1{
+    color:white;
+    font-size:36px;
+    
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+
+}
+#options{
+    width:60%;
+    height:auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:10px;
+    margin-top: 20px;
+    color:white;
+}
+#options h2{
+    font-size: 20px;
+    font-weight: bold;
+    width:100%;
+    text-align: left;
+}
+#opttext{
+    font-size: 18px;
+    width:100%;
+    text-align: left;
+}
+#optbut{
+    width:100%;
+    font-size:18px;
+    text-align: left;
+    text-decoration: underline;
+}
+#optbut:hover{
+    cursor:pointer;
+}
+#line{
+    flex: 1;
+    height: 2px; 
+    width:100%;
+    background-color: rgb(255, 255, 255); 
+    margin: 0 8px;
+    font-size:1.5px;
+}
+#logout-button{
+    position:absolute;
+    width:50%;
+    height:50px;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:20px;
+    background-color: #F18787;
+    bottom:10%;
+    color:white;
+}
+#logout-button:hover{
+    background-color: #e97272;
+    cursor:pointer
+}
+#close-button{
+    align-self: center;
+    justify-self: flex-end;
+    position: absolute;
+    /*top: 5%;
+    right: 5%;*/
+    left:3%;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size:24px;
+}
+
+.footer-container{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    background-color:#71AD8D ;
+    color: white;
+    font-family: var(--primary-font-family);
+    font-style: var(--primary-font-style);
+    font-size: 16px;
+    height:5vh;
+    margin-top: 3%;
+    position: absolute;
+    bottom:0;
+}
+.container{
+    height:70vh;
+    width:100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    
+}
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #22C55E;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px 0;
+}
+#welcome-container{
+    width:70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#welcome-container h1{
+    color: white;
+    font-size: 36px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    text-align: center;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.2s ease-in-out;
+  
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 20px;
+  gap:10px;
+}
+
+.confirm-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #ccc;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.confirm-btn:hover {
+  background: darkred;
+}
+
+.cancel-btn:hover {
+  background: #aaa;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@media screen and (max-width: 768px) {
+    
+    #close-icon{
+        height: 25px;
+        width: 25px;
+    }
+    .h1{
+        font-size:20px;
+        text-align: left;
+        position:absolute;
+        right:3%;
+    }
+    .navbar{
+        height:10vh;
+    }
+    #options{
+        width:90%;
+    }
+    #logout-button{
+        width:90%;
+    }
+    
+}

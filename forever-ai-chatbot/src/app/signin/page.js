@@ -35,7 +35,8 @@ export default function Signin(){
                     localStorage.setItem('username', data.user.username);
                     localStorage.setItem('tier', data.user.tier);
                     localStorage.setItem('userid',data.user.userid);
-                    
+                    localStorage.setItem('email', data.user.email);
+
                     router.push('/dashboard');
                 }else{
                     setError(data.message);

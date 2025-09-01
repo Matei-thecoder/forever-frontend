@@ -299,6 +299,19 @@ h3{
     font-style: normal;
 
 }
+#settings-button{
+    align-self: center;
+    justify-self: flex-end;
+    position: absolute;
+    /*top: 5%;
+    right: 5%;*/
+    right:3%;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size:24px;
+}
 @media screen and (max-width: 768px) {
     .dashboard-container{
         width:90%;
@@ -306,6 +319,19 @@ h3{
     .conversation-list{
         width:90vw;
         height:30vh;
+    }
+    #settings-icon{
+        height: 25px;
+        width: 25px;
+    }
+    #h1{
+        font-size:20px;
+        text-align: left;
+        position:absolute;
+        left:3%;
+    }
+    #navbar{
+        height:20vh;
     }
     
 }
