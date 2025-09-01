@@ -43,11 +43,11 @@ export default function Settings(){
     }
     return (
         <div className="settings">
-            <div className="navbar">
+            <div className="navbar-1">
                 <button id="close-button" onClick={handleBack}>
                         <svg xmlns="http://www.w3.org/2000/svg" id="close-icon" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffffffff"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                 </button>
-                <h1 className="h1">Forever AI Helper</h1>
+                <h1 className="h1-1">Forever AI Helper</h1>
                 
             </div>
             <div className="container">
