@@ -107,3 +107,12 @@ display: flex;
 #link:hover{
     color:#16a34a;
 }
+.alert-danger{
+  width:70%;
+  height:90%;
+  font-weight: bold;
+  color:rgb(255, 129, 129);
+  border:rgb(255, 129, 129) solid 2px;
+  border-radius: 10px;
+  text-align: center;
+}

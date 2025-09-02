@@ -26,7 +26,7 @@ export default function Settings(){
         setTier(storedTier);
     }, [])
     const changeUsername = () =>{
-        alert("not working yet");
+        router.push('/changeUsername');
     }
     const deleteConversations = () =>{
         alert("not working yet");
