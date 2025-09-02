@@ -35,7 +35,7 @@ export default function Settings(){
     const deleteConversations = () =>{
         const storedUserid = localStorage.getItem("userid");
         try{
-            fetch(`http://localhost:5000/delete/all/conversations`, {
+            fetch(`https://forever-backend-m87a.onrender.com/delete/all/conversations`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
