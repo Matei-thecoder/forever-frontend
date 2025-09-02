@@ -239,13 +239,13 @@
         height: 25px;
         width: 25px;
     }
-    .h1{
+    .h1-1{
         font-size:20px;
         text-align: left;
         position:absolute;
         right:3%;
     }
-    .navbar{
+    .navbar-1{
         height:10vh;
     }
     #options{
@@ -255,4 +255,27 @@
         width:90%;
     }
     
+}
+@media screen and (max-height : 775px) {
+    .settings{
+        height:100%;
+    }
+    .footer-container{
+        position: static;
+        margin-top: 20%;
+        bottom:0;
+    }
+    #logout-button{
+        position: static;
+        margin-top:4%;
+        height: 50px;
+        padding-top:3%;
+        padding-bottom: 3%;
+    }
+}
+@media screen and (max-width:205px)
+{
+    .h1-1{
+        font-size: 12px;
+    }
 }
