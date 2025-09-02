@@ -3,14 +3,16 @@
 import "./page.css"
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 export default function Settings(){
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
+    const [userid,setUserid] = useState("");
     const [tier,setTier] = useState("");
     const router = useRouter();
     const [showLogoutModal, setShowLogoutModal] = useState(false);
+    const [showDelConvModal, setShowDelConvModal] = useState(false);
 
 
     const handleBack = () =>{
@@ -21,15 +23,41 @@ export default function Settings(){
         const storedUsername = localStorage.getItem("username");
         const storedEmail = localStorage.getItem("email");
         const storedTier = localStorage.getItem("tier");
+        const storedUserid = localStorage.getItem("userid");
         setEmail(storedEmail);
         setUsername(storedUsername);
         setTier(storedTier);
+        setUserid(storedUserid);
     }, [])
     const changeUsername = () =>{
         router.push('/changeUsername');
     }
     const deleteConversations = () =>{
-        alert("not working yet");
+        const storedUserid = localStorage.getItem("userid");
+        try{
+            fetch(`http://localhost:5000/delete/all/conversations`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userid: storedUserid }),
+            }).then(res=>res.json())
+            .then(data=>{
+                if(data.message === "success"){
+                    console.log("delete conversations successful");
+                    router.push('/dashboard');
+                }else{
+                    console.log(data.message);
+                    alert("Error deleting conversations");
+                }
+            })
+        }
+        catch(e)
+        {
+            console.log(e);
+            alert("Error deleting conversations");
+        }
+           
     }
     const deleteAccount = () =>{
         alert("not working yet");
@@ -78,7 +106,7 @@ export default function Settings(){
                     <hr></hr>
                     <button id="optbut" onClick={changeUsername}>Change username</button>
                     <button id="optbut" onClick={changePassword}>Change password</button>
-                    <button id="optbut" onClick={deleteConversations}>Delete your conversations</button>
+                    <button id="optbut" onClick={()=>setShowDelConvModal(true)}>Delete your conversations</button>
                     <button id="optbut" onClick={deleteAccount}>Delete your account</button>
                 </div>
                 <button id="logout-button" onClick={()=>{setShowLogoutModal(true)}}>
@@ -104,6 +132,32 @@ export default function Settings(){
                         onClick={LogOut}
                         >
                         Log Out
+                        </button>
+                        
+                    </div>
+                
+                </div>
+                </div>
+            )}
+            {showDelConvModal && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                    <h3>Are you sure?</h3>
+                    <p>Do you really want to delete your conversations?</p>
+                    <div className="modal-buttons">
+                        <button
+                        className="cancel-btn"
+                        onClick={() => {
+                            setShowDelConvModal(false);
+                        }}
+                        >
+                        Cancel
+                        </button>
+                        <button
+                        className="confirm-btn"
+                        onClick={deleteConversations}
+                        >
+                        Delete
                         </button>
                         
                     </div>
