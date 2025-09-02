@@ -34,6 +34,9 @@ export default function Settings(){
     const deleteAccount = () =>{
         alert("not working yet");
     }
+    const changePassword = () =>{
+        router.push('/changePassword');
+    }
     const LogOut = () =>{
         localStorage.removeItem("username");
         localStorage.removeItem("email");
@@ -74,6 +77,7 @@ export default function Settings(){
                     <div id="line">.</div>
                     <hr></hr>
                     <button id="optbut" onClick={changeUsername}>Change username</button>
+                    <button id="optbut" onClick={changePassword}>Change password</button>
                     <button id="optbut" onClick={deleteConversations}>Delete your conversations</button>
                     <button id="optbut" onClick={deleteAccount}>Delete your account</button>
                 </div>
