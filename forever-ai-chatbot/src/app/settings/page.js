@@ -10,9 +10,12 @@ export default function Settings(){
     const [email, setEmail] = useState("");
     const [userid,setUserid] = useState("");
     const [tier,setTier] = useState("");
+    const [deletetext, setDeleteText] = useState("");
     const router = useRouter();
     const [showLogoutModal, setShowLogoutModal] = useState(false);
     const [showDelConvModal, setShowDelConvModal] = useState(false);
+    const [showDelAccModal, setShowDelAccModal] = useState(false);
+    const [deleteAccErr, setDeleteAccErr] = useState("");
 
 
     const handleBack = () =>{
@@ -60,7 +63,39 @@ export default function Settings(){
            
     }
     const deleteAccount = () =>{
-        alert("not working yet");
+        const storedUserid = localStorage.getItem("userid");
+        if(deletetext !== "DELETE ACCOUNT")
+        {
+            setDeleteAccErr("Please type 'DELETE ACCOUNT' to confirm.");
+            return;
+        }
+        try{
+            fetch(`https://forever-backend-m87a.onrender.com/delete-account`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ user_id: storedUserid }),
+            }).then(res=>res.json())
+            .then(data=>{
+                if(data.message === "success"){
+                    console.log("delete account successful");
+                    localStorage.removeItem('userid');
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('tier');
+                    router.push('/home');
+                }else{
+                    console.log(data.message);
+                    setDeleteAccErr("Error deleting account");
+                }
+            })
+        }
+        catch(e)
+        {
+            console.log(e);
+            setDeleteAccErr("Error deleting conversations");
+        }
     }
     const changePassword = () =>{
         router.push('/changePassword');
@@ -107,7 +142,7 @@ export default function Settings(){
                     <button id="optbut" onClick={changeUsername}>Change username</button>
                     <button id="optbut" onClick={changePassword}>Change password</button>
                     <button id="optbut" onClick={()=>setShowDelConvModal(true)}>Delete your conversations</button>
-                    <button id="optbut" onClick={deleteAccount}>Delete your account</button>
+                    <button id="optbut" className="red" onClick={()=> setShowDelAccModal(true)}>Delete your account</button>
                 </div>
                 <button id="logout-button" onClick={()=>{setShowLogoutModal(true)}}>
                     Log Out
@@ -156,6 +191,48 @@ export default function Settings(){
                         <button
                         className="confirm-btn"
                         onClick={deleteConversations}
+                        >
+                        Delete
+                        </button>
+                        
+                    </div>
+                
+                </div>
+                </div>
+            )}
+            {showDelAccModal && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                    <h3>Are you sure?</h3>
+                    <p>Do you really want to delete your account?</p>
+                    {deleteAccErr && (
+                                <div className="alert-danger">
+                                {deleteAccErr}
+                                </div>
+                            )}
+                    <div className="modal-buttons">
+                        <div className="form-group">
+                            <label>Type in DELETE ACCOUNT to delete your account.</label>
+                            <input
+                            className="input"
+                            type="text"
+                            value={deletetext}
+                            onChange={(e) => setDeleteText(e.target.value)}
+                            placeholder=""
+                            required
+                            />
+                        </div>
+                        <button
+                        className="cancel-btn"
+                        onClick={() => {
+                            setShowDelAccModal(false);
+                        }}
+                        >
+                        Cancel
+                        </button>
+                        <button
+                        className="confirm-btn"
+                        onClick={deleteAccount}
                         >
                         Delete
                         </button>
