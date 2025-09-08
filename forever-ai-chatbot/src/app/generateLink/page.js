@@ -33,7 +33,7 @@ export default function GenerateLink() {
         setGeneratedLink(link);
 
         try{
-            const res = await fetch("http://localhost:5000/createlink",{
+            const res = await fetch("https://forever-backend-m87a.onrender.com/createlink",{
                 method:"POST",
                 headers: {
                     "Content-Type": "application/json",
