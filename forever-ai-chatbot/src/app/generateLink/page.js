@@ -28,7 +28,7 @@ export default function GenerateLink() {
     const handleGenerate =async () => {
         // Example link generation logic
         const randomId = Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2);
-        const link = `https://example.com/user/${randomId}`;
+        const link = `https://forever-chatbot.vercel.app/signup/${randomId}`;
         const storedUserid = localStorage.getItem("userid");
         setGeneratedLink(link);
 
