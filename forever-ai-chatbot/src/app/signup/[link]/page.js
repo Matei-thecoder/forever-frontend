@@ -54,7 +54,7 @@ export default function Signup(){
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, email, password,link }),
+                body: JSON.stringify({ username, email, password, link:inviteCode }),
             })
             .then(res=>res.json())
             .then(data=>{
