@@ -10,6 +10,7 @@ export default function Settings(){
     const [email, setEmail] = useState("");
     const [userid,setUserid] = useState("");
     const [tier,setTier] = useState("");
+    const [invited_friends, setInvited_friends] = useState("");
     const [deletetext, setDeleteText] = useState("");
     const router = useRouter();
     const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -27,10 +28,12 @@ export default function Settings(){
         const storedEmail = localStorage.getItem("email");
         const storedTier = localStorage.getItem("tier");
         const storedUserid = localStorage.getItem("userid");
+        const storedInvited_friends = localStorage.getItem("invited_friends");
         setEmail(storedEmail);
         setUsername(storedUsername);
         setTier(storedTier);
         setUserid(storedUserid);
+        setInvited_friends(storedInvited_friends);
     }, [])
     const changeUsername = () =>{
         router.push('/changeUsername');
@@ -105,6 +108,7 @@ export default function Settings(){
         localStorage.removeItem("email");
         localStorage.removeItem("tier");
         localStorage.removeItem("userid");
+        localStorage.removeItem("invited_friends");
         router.push("/home");
     }
     return (
@@ -134,6 +138,7 @@ export default function Settings(){
                     <p id="opttext">Username: {username}</p>
                     <p id="opttext">Email: {email}</p>
                     <p id="opttext">Tier: {tier}</p>
+                    <p id="opttext">Friends Invited: {invited_friends}</p>
                 </div>
                 <div id="options">
                     <h2>Options</h2>

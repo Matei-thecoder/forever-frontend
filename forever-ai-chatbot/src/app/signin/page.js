@@ -37,6 +37,7 @@ export default function Signin(){
                     localStorage.setItem('tier', data.user.tier);
                     localStorage.setItem('userid',data.user.userid);
                     localStorage.setItem('email', data.user.email);
+                    localStorage.setItem("invited_friends",data.user.invited_friends);
 
                     router.push('/dashboard');
                 }else{

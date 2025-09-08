@@ -42,6 +42,7 @@ export default function Signup(){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        //https://forever-backend-m87a.onrender.com/
         // Handle form submission logic here
         if(password !== confirmPassword)
         {
@@ -49,7 +50,7 @@ export default function Signup(){
             return;
         }
         try{
-            await fetch('https://forever-backend-m87a.onrender.com/signup/link', {
+            await fetch('http://localhost:5000/signup/link', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
