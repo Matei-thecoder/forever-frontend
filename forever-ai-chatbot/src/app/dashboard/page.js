@@ -104,6 +104,9 @@ export default function Dashboard() {
     const handleSettings = () =>{
         router.push("/settings");
     }
+    const generateLink = () =>{
+        router.push("/generateLink");
+    }
     return (
         <div className='dashboard'>
             <div id = "navbar">
@@ -130,6 +133,10 @@ export default function Dashboard() {
                 <div className="startConvo">
                     <h3>Start a new conversation with our assistant here.</h3>
                     <button onClick={startConvo}>+</button>
+                </div>
+                <div className="generateLink">
+                    <h3>Want to increase your tier? Generate a link to share with friends here</h3>
+                    <button onClick={generateLink} className="genLinkBut">Generate a Link</button>
                 </div>
                 <div className='conversation-list'>
                     <h3 id="special-h3">Your conversations</h3>

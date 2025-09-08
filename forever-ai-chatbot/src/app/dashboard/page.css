@@ -312,8 +312,39 @@ h3{
     cursor: pointer;
     font-size:24px;
 }
+.generateLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    padding-top: 10px;
+}
+.genLinkBut{
+    width:300px;
+    height:50px;
+    background-color: #22C55E;
+    color:white;
+    font-family: var(--primary-font-family);
+    font-style:var(--primary-font-style);
+    font-size:20px;
+    font-weight: 550;
+    border-radius:10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+
+
+}
+.genLinkBut:hover{
+    cursor: pointer;
+    background-color: #16a34a;
+    color: white;
+    
+}
 @media screen and (max-width: 768px) {
+    .dashboard{
+        height:100%;
+    }
     .dashboard-container{
+        height:100%;
         width:90%;
     }
     .conversation-list{
