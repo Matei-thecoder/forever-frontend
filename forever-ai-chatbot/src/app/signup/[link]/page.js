@@ -50,7 +50,7 @@ export default function Signup(){
             return;
         }
         try{
-            await fetch('http://localhost:5000/signup/link', {
+            await fetch('https://forever-backend-m87a.onrender.com/signup/link', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
