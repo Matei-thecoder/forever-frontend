@@ -1,3 +1,4 @@
+/* Container and layout */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
@@ -10,203 +11,172 @@
 }
 
 
-.signin{
-    width:100vw;
-    height:100%;
-    background-color: var(--primary-background-color);
-    display:flex;
-    align-items: center;
-    flex-direction: column;
-    font-family: var(--primary-font-family);
 
+.dashboard {
+    background-color: white;
+    width: 100vw;
+    color:black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* ensures footer sticks to bottom */
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    gap: 5vh;
 }
-.signin-page{
+
+.dashboard-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+     margin-top: 20px; /* optional spacing from navbar */
+}
+
+/* Navbar */
+#navbar {
+    background-color: #A5E3C2;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+#h1 {
+    color: white;
+    font-size: 36px;
+    font-weight: 800;
+}
+#footer-container{
     width:100%;
-    height:100%;
     display: flex;
     align-items: center;
-    flex-direction: column;
     justify-content: center;
+    padding: 20px 0;
+    background-color: var(--secondary-background-color);
+    color: white;
+    font-family: var(--primary-font-family);
+    font-style: var(--primary-font-style);
+    font-size: 16px;
+    height:5%;
+    margin-top: 3%;
+    align-self: flex-end;
 }
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  max-width: 400px;
-    color:black;
-}
-
+/* Card */
 .login-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
- 
- 
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .login-title {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 1.5rem;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
 }
 
-.login-form .form-group {
-  margin-bottom: 1rem;
-}
-.login-form{
-display: flex;
-  flex-direction: column;
-  gap:20px;
-}
-
-.login-form label {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-size: 14px;
-  font-weight: 500;
-  color: #555;
-}
-
-.login-form input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  outline: none;
-  font-size: 14px;
-}
-
-.login-form input:focus {
-  border-color: #34d399; /* green-400 */
-}
-
-.login-button {
-  width: 100%;
-  background-color: #22c55e; /* green-500 */
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.login-button:hover {
-  background-color: #16a34a; /* green-600 */
-}
-#link{
-    text-decoration: underline;
-    color:#22c55e;
-}
-#link:hover{
-    color:#16a34a;
-}
-.alert-danger{
-  width:70%;
-  height:90%;
-  font-weight: bold;
-  color:rgb(255, 129, 129);
-  border:rgb(255, 129, 129) solid 2px;
-  border-radius: 10px;
-  text-align: center;
-}
-.loader {
-    border: 6px solid #f3f3f3;
-    border-top: 6px solid #22C55E;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-    margin: 20px 0;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+/* Generated link input container */
 .generated-link-container {
     display: flex;
-    align-items: center;
-    margin-top: 15px;
+    width: 100%;
+    gap: 10px;
 }
 
 .generated-link-input {
     flex: 1;
-    padding: 10px 12px;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-family: monospace;
     font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    font-family: monospace; /* makes long links easier to read */
-    white-space: nowrap; /* prevent wrapping */
-    overflow-x: auto; /* horizontal scroll */
-    text-overflow: ellipsis; /* optional: show ... when truncated */
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
-.generated-link-input:focus {
-    border-color: #22C55E; /* Indigo focus color */
-    box-shadow: 0 0 5px rgba(70, 229, 83, 0.5);
+.generated-link-input::-webkit-scrollbar {
+    height: 6px;
 }
 
+.generated-link-input::-webkit-scrollbar-thumb {
+    background-color: #22C55E;
+    border-radius: 3px;
+}
+
+/* Buttons */
+.genLinkBut,
 .copy-button {
-    padding: 10px 16px;
-    margin-left: 10px;
-    background-color: #22C55E; /* Indigo */
-    color: white;
-    font-size: 14px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
+    background-color: #22C55E;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
+.genLinkBut:hover,
 .copy-button:hover {
-    background-color: #16a34a; /* Darker indigo on hover */
+    background-color: #16a34a;
 }
 
-.copy-button:disabled {
-    background-color: #a5b4fc; /* Light indigo when disabled */
-    cursor: not-allowed;
-}
+/* Referral section */
 .referral-section {
-    background: linear-gradient(135deg, #A5E3C2, #86D9A5); /* soft green gradient */
-    color: white; /* dark green for contrast */
-    padding: 25px 30px;
+    width: 100%;
+    max-width: 700px;
+    text-align: left;
+    background-color: #f7f7f7;
+    padding: 20px 30px;
     border-radius: 12px;
-    margin: 30px auto;
-    max-width: 800px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    width:80%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .referral-section h2 {
-    margin-bottom: 15px;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
 
 .referral-section p {
     font-size: 16px;
-    margin-bottom: 15px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .referral-section ul {
-    padding-left: 20px;
-    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .referral-section li {
-    margin-bottom: 8px;
-    font-weight: 500;
+    margin-bottom: 6px;
 }
 
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        width: 90%;
+    }
 
+    .login-card {
+        padding: 20px;
+    }
+
+    .generated-link-container {
+        flex-direction: column;
+    }
+
+    .genLinkBut,
+    .copy-button {
+        width: 100%;
+    }
+}
