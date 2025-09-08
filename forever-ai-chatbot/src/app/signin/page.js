@@ -5,6 +5,7 @@ import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import { redirect} from "next/navigation";
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import { useState } from 'react';
 import { Eye, EyeOff } from "lucide-react"; // eye icons
@@ -98,7 +99,7 @@ export default function Signin(){
                     <button type="submit" className="login-button">
                         Login
                     </button>
-                    <p>Do you not have an account? Create one <a href="/signup" id="link">here</a>.</p>
+                    <p>Do you not have an account? Create one <Link href="/signup" id="link">here</Link>.</p>
                     </form>
                 </div>
             </div>
