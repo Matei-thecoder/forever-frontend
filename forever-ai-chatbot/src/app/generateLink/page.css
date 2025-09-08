@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root{
+    --primary-background-color:white;
+    --secondary-background-color: #A5E3C2;
+    --primary-font-family: "Poppins", sans-serif;
+    --primary-font-size: 16px;
+    --primary-font-style:"normal";
+}
+
+
+.signin{
+    width:100vw;
+    height:100vh;
+    background-color: var(--primary-background-color);
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--primary-font-family);
+
+}
+.signin-page{
+    width:100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 400px;
+    color:black;
+}
+
+.login-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+ 
+ 
+}
+
+.login-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.login-form .form-group {
+  margin-bottom: 1rem;
+}
+.login-form{
+display: flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+.login-form input:focus {
+  border-color: #34d399; /* green-400 */
+}
+
+.login-button {
+  width: 100%;
+  background-color: #22c55e; /* green-500 */
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #16a34a; /* green-600 */
+}
+#link{
+    text-decoration: underline;
+    color:#22c55e;
+}
+#link:hover{
+    color:#16a34a;
+}
+.alert-danger{
+  width:70%;
+  height:90%;
+  font-weight: bold;
+  color:rgb(255, 129, 129);
+  border:rgb(255, 129, 129) solid 2px;
+  border-radius: 10px;
+  text-align: center;
+}
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #22C55E;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.generated-link-container {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.generated-link-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: monospace; /* makes long links easier to read */
+    white-space: nowrap; /* prevent wrapping */
+    overflow-x: auto; /* horizontal scroll */
+    text-overflow: ellipsis; /* optional: show ... when truncated */
+}
+
+.generated-link-input:focus {
+    border-color: #22C55E; /* Indigo focus color */
+    box-shadow: 0 0 5px rgba(70, 229, 83, 0.5);
+}
+
+.copy-button {
+    padding: 10px 16px;
+    margin-left: 10px;
+    background-color: #22C55E; /* Indigo */
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+    background-color: #16a34a; /* Darker indigo on hover */
+}
+
+.copy-button:disabled {
+    background-color: #a5b4fc; /* Light indigo when disabled */
+    cursor: not-allowed;
+}
+.referral-section {
+    background: linear-gradient(135deg, #A5E3C2, #86D9A5); /* soft green gradient */
+    color: white; /* dark green for contrast */
+    padding: 25px 30px;
+    border-radius: 12px;
+    margin: 30px auto;
+    max-width: 800px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    width:80%;
+}
+
+.referral-section h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.referral-section p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.referral-section ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.referral-section li {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+
