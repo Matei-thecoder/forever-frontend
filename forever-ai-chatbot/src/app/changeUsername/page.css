@@ -12,12 +12,13 @@
 
 .signin{
     width:100vw;
-    height:100vh;
+    min-height:100vh;
     background-color: var(--primary-background-color);
     display:flex;
     align-items: center;
     flex-direction: column;
     font-family: var(--primary-font-family);
+    justify-content: space-between;
 
 }
 .signin-page{
@@ -32,6 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   width: 80%;
   max-width: 400px;
     color:black;

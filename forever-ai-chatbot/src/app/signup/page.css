@@ -12,11 +12,12 @@
 
 .signup{
     width:100vw;
-    height:100vh;
+    min-height:100vh;
     background-color: var(--primary-background-color);
     display:flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
     font-family: var(--primary-font-family);
 
 }
@@ -34,6 +35,7 @@
   width: 80%;
   max-width: 400px;
     color:black;
+    margin-top: 20px;
 }
 
 .login-card {

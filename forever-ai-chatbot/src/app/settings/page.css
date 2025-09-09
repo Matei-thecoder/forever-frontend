@@ -12,10 +12,11 @@
 .settings{
     background-color: #71AD8D;
     width:100vw;
-    height:100vh;
+    min-height:100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
     gap:20px;
     color:black;
 }
@@ -80,14 +81,15 @@
     font-size:1.5px;
 }
 #logout-button{
-    position:absolute;
+    margin-top: 5vh;
+    margin-top: 10px;
     width:50%;
     height:50px;
     font-size:20px;
     font-weight:bold;
     border-radius:20px;
     background-color: #F18787;
-    bottom:10%;
+    
     color:white;
 }
 #logout-button:hover{
@@ -121,15 +123,15 @@
     font-size: 16px;
     height:5vh;
     margin-top: 3%;
-    position: absolute;
-    bottom:0;
+    
 }
 .container{
-    height:70vh;
+    min-height:70vh;
     width:100vw;
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
     
     
 }
@@ -256,23 +258,23 @@
     }
     
 }
-@media screen and (max-height : 775px) {
+/*@media screen and (max-height : 775px) {
     .settings{
         height:100%;
     }
     .footer-container{
         position: static;
-        margin-top: 20%;
+        margin-top: 20px;
         bottom:0;
     }
     #logout-button{
-        position: static;
+        margin-bottom: 10px;
         margin-top:4%;
         height: 50px;
         padding-top:3%;
         padding-bottom: 3%;
     }
-}
+}*/
 @media screen and (max-width:205px)
 {
     .h1-1{
