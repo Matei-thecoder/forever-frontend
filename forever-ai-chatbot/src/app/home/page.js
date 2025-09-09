@@ -6,6 +6,7 @@ import './page.css';
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 import Image from "next/image";
 
@@ -71,7 +72,8 @@ export default function Home(){
           <div id="contactme-section">
               <h2 id="contactme-title">Contact me</h2>
               <div id="line">.</div>
-              <p>Feel free to contact me at bla@email.com</p>
+              <p>Feel free to contact me at simona.mirela.puscasu@gmail.com</p>
+              <Link href="https://www.facebook.com/simona.puscasu.90/"><Image src="/facebook.png" width={50} height={50} alt="facebook" ></Image></Link>
           </div>
       </div>
 
