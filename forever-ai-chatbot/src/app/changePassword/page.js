@@ -128,6 +128,7 @@ export default function Signin(){
                             <input
                                 type="password"
                                 value={confirmNewPassword}
+                                placeholder='Comfirm password'
                                 onChange={(e) => setConfirmNewPassword(e.target.value)}
                             />
                         </div>
