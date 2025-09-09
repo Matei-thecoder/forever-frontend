@@ -17,6 +17,7 @@ export default function Settings(){
     const [showDelConvModal, setShowDelConvModal] = useState(false);
     const [showDelAccModal, setShowDelAccModal] = useState(false);
     const [deleteAccErr, setDeleteAccErr] = useState("");
+    
 
 
     const handleBack = () =>{
@@ -24,7 +25,7 @@ export default function Settings(){
     }
 
     useEffect(()=>{
-        const storedUsername = localStorage.getItem("username");
+        /*const storedUsername = localStorage.getItem("username");
         const storedEmail = localStorage.getItem("email");
         const storedTier = localStorage.getItem("tier");
         const storedUserid = localStorage.getItem("userid");
@@ -33,7 +34,47 @@ export default function Settings(){
         setUsername(storedUsername);
         setTier(storedTier);
         setUserid(storedUserid);
-        setInvited_friends(storedInvited_friends);
+        setInvited_friends(storedInvited_friends);*/
+        const storedUserid = localStorage.getItem("userid");
+        const getUserData = async ()=>{
+            
+            try{
+                console.log(storedUserid);
+                const res = await fetch(`https://forever-backend-m87a.onrender.com/getuserdata`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userid: storedUserid })
+                })
+                const data = await res.json();
+                if(data.message=="error")
+                {
+                    console.log("error");
+                    alert("Server error");
+                    return;
+                }
+                else
+                {
+                    setEmail(data.data.email);
+                    setUsername(data.data.username);
+                    setInvited_friends(data.data.invited_friends);
+                    setTier(data.data.tier);
+                    
+                }
+            }catch(e){
+                console.log(e);
+                alert("An error has occured");
+            }
+
+        }
+        if(storedUserid)
+        {
+            console.log(storedUserid);
+            getUserData();
+        }
+            
+        
     }, [])
     const changeUsername = () =>{
         router.push('/changeUsername');
