@@ -28,6 +28,18 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+         <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-17HDEHBKFH`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-17HDEHBKFH');
+          `}
+        </Script>
       </body>
     </html>
   );
