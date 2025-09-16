@@ -98,7 +98,7 @@ export default function Guestmode() {
     // fetch bot reply
     (async () => {
       try {
-        const res = await fetch("forever-backend-production.up.railway.app/chat/guestmode", {
+        const res = await fetch("https://forever-backend-production.up.railway.app/chat/guestmode", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question: userMessage }),

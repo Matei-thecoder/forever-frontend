@@ -22,7 +22,7 @@ export default function Signin(){
         e.preventDefault();
         // Handle form submission logic here
         try{
-            await fetch('forever-backend-production.up.railway.app/login', {
+            await fetch('https://forever-backend-production.up.railway.app/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

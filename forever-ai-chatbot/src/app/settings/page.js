@@ -40,7 +40,7 @@ export default function Settings(){
             
             try{
                 console.log(storedUserid);
-                const res = await fetch(`forever-backend-production.up.railway.app/getuserdata`, {
+                const res = await fetch(`https://forever-backend-production.up.railway.app/getuserdata`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ export default function Settings(){
     const deleteConversations = () =>{
         const storedUserid = localStorage.getItem("userid");
         try{
-            fetch(`forever-backend-production.up.railway.app/delete/all/conversations`, {
+            fetch(`https://forever-backend-production.up.railway.app/delete/all/conversations`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ export default function Settings(){
             return;
         }
         try{
-            fetch(`forever-backend-production.up.railway.app/delete-account`, {
+            fetch(`https://forever-backend-production.up.railway.app/delete-account`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

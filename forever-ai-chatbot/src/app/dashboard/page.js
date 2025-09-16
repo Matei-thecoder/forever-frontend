@@ -43,7 +43,7 @@ export default function Dashboard() {
         let res;
         let data;
         const fetchConversations = async () => {
-            res = await fetch("forever-backend-production.up.railway.app/chat/usermode/getAllConversations", {
+            res = await fetch("https://forever-backend-production.up.railway.app/chat/usermode/getAllConversations", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export default function Dashboard() {
         console.log(userid);
         if(userid)
         {
-            const res = await fetch("forever-backend-production.up.railway.app/chat/usermode/startConvo", {
+            const res = await fetch("https://forever-backend-production.up.railway.app/chat/usermode/startConvo", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -203,7 +203,7 @@ export default function Dashboard() {
                         className="confirm-btn"
                         onClick={async () => {
                             if (conversationToDelete) {
-                            const res = await fetch("forever-backend-production.up.railway.app/delete/conversation", {
+                            const res = await fetch("https://forever-backend-production.up.railway.app/delete/conversation", {
                                 method: "DELETE",
                                 headers: {
                                 "Content-Type": "application/json",

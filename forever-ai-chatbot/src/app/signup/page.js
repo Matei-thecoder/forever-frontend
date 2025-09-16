@@ -47,7 +47,7 @@ export default function Signup(){
             return;
         }
         try{
-            await fetch('forever-backend-production.up.railway.app/signup', {
+            await fetch('https://forever-backend-production.up.railway.app/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
