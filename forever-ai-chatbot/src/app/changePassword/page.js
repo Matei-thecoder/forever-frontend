@@ -47,7 +47,7 @@ export default function Signin(){
         // Handle form submission logic here
         const storedEmail = localStorage.getItem("email");
         try{
-            await fetch('https://forever-backend-m87a.onrender.com/changepassword', {
+            await fetch('forever-backend-production.up.railway.app/changepassword', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -79,7 +79,7 @@ export default function Chat() {
     const storedConvoId = localStorage.getItem("conversationId");
     setConvoid(storedConvoId);
     const getMessages = async() =>{
-        const res = await fetch("https://forever-backend-m87a.onrender.com/chat/usermode/getConversation", {
+        const res = await fetch("forever-backend-production.up.railway.app/chat/usermode/getConversation", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -134,7 +134,7 @@ export default function Chat() {
         // fetch bot reply
         (async () => {
         try {
-            const res = await fetch("https://forever-backend-m87a.onrender.com/chat/usermode/sendMessage", {
+            const res = await fetch("forever-backend-production.up.railway.app/chat/usermode/sendMessage", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

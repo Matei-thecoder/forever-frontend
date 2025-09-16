@@ -50,7 +50,7 @@ export default function Signup(){
             return;
         }
         try{
-            await fetch('https://forever-backend-m87a.onrender.com/signup/link', {
+            await fetch('forever-backend-production.up.railway.app/signup/link', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

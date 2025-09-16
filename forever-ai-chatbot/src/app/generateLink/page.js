@@ -27,7 +27,7 @@ export default function GenerateLink() {
         setGeneratedLink(link);
 
         try {
-            const res = await fetch("https://forever-backend-m87a.onrender.com/createlink", {
+            const res = await fetch("forever-backend-production.up.railway.app/createlink", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ userid, link: randomId }),
