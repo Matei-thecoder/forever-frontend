@@ -141,7 +141,7 @@ export default function Chat() {
             const storedTier = localStorage.getItem("tier");
             console.log("Using tier:", storedTier);
             //https://forever-backend-production.up.railway.app
-            const res = await fetch("http://localhost:5000/chat/usermode/sendMessage", {
+            const res = await fetch("https://forever-backend-production.up.railway.app/chat/usermode/sendMessage", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
