@@ -12,6 +12,7 @@ export default function Chat() {
   const [messages, setMessages] = useState([]); // { type: 'user' | 'bot', text, loading? }
   const [convoid,setConvoid] = useState('');
   const [loaded,setLoaded] = useState(false);
+  const [tier, setTier] = useState('');
   const textareaRef = useRef(null);
   const contentRef = useRef(null);
   const router = useRouter();
@@ -77,6 +78,9 @@ export default function Chat() {
 
   useEffect(() => {
     const storedConvoId = localStorage.getItem("conversationId");
+    const storedTier = localStorage.getItem("tier");
+    setTier(storedTier);
+    console.log("Stored convo ID:", storedConvoId);
     setConvoid(storedConvoId);
     const getMessages = async() =>{
         const res = await fetch("https://forever-backend-production.up.railway.app/chat/usermode/getConversation", {
@@ -134,12 +138,14 @@ export default function Chat() {
         // fetch bot reply
         (async () => {
         try {
+            const storedTier = localStorage.getItem("tier");
             const res = await fetch("https://forever-backend-production.up.railway.app/chat/usermode/sendMessage", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 conversation_id: convoid,
-                question: userMessage
+                question: userMessage,
+                tier: storedTier
             })
             });
             if (!res.ok) throw new Error("Failed to fetch chat response");
