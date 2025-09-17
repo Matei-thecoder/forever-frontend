@@ -51,7 +51,7 @@ export default function GenerateLink() {
     return (
         <div className="dashboard">
             <div id="navbar">
-                <h1 id="h1">Forever AI Helper</h1>
+                <h1 id="h1">Forever Life</h1>
             </div>
 
             <div className="dashboard-container">

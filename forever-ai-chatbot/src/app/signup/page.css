@@ -130,3 +130,13 @@ display: flex;
   justify-content: center;
   padding: 0;
 }
+.checkbox-group{
+  display: flex;
+  align-items: center;
+  
+  gap:10px;
+  flex-direction: row;
+}
+#checkbox{
+  width:10%;
+}

@@ -134,7 +134,7 @@ export default function Guestmode() {
   return (
     <div className='chat'>
       <div id="navbar-chat">
-        <h1 id="h1">Forever AI Helper</h1>
+        <h1 id="h1">Forever Life</h1>
       </div>
 
       <div

@@ -19,6 +19,7 @@ export default function Signup(){
     const [confirmPassword,setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [error,setError] = useState('');
+    const [checked, setChecked] = useState(false);
     const router = useRouter();
     const params = useParams();
     const inviteCode = params.link;
@@ -47,6 +48,11 @@ export default function Signup(){
         if(password !== confirmPassword)
         {
             setError("Passwords do not match.");
+            return;
+        }
+        if(!checked)
+        {
+            setError("You must agree to the terms and conditions and the privacy policy.");
             return;
         }
         try{
@@ -167,7 +173,15 @@ export default function Signup(){
                                 required
                                 />
                             </div>
-        
+                            <div className="checkbox-group">
+                                <input
+                                    type="checkbox"
+                                    id="checkbox"
+                                    checked={checked}
+                                    onChange={(e) => setChecked(e.target.checked)}
+                                />
+                                <label htmlFor="checkbox">I agree to the <Link href="/termsAndConditions" id="link">terms and conditions</Link> and the <Link href="/privacyPolicy" id="link">privacy policy</Link>.</label>
+                            </div>
                             <button type="submit" className="login-button">
                                 Sign Up
                             </button>
