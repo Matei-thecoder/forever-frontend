@@ -46,10 +46,10 @@ export default function Home(){
 
               <div id="line">.</div>
               <div className="video-list">
-                <iframe width="300" height="170" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video 1" frameBorder="0" allowFullScreen></iframe>
-                <iframe width="300" height="170" src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="YouTube video 2" frameBorder="0" allowFullScreen></iframe>
-                <iframe width="300" height="170" src="https://www.youtube.com/embed/L_jWHffIx5E" title="YouTube video 3" frameBorder="0" allowFullScreen></iframe>
-                <iframe width="300" height="170" src="https://www.youtube.com/embed/tVj0ZTS4WF4" title="YouTube video 4" frameBorder="0" allowFullScreen></iframe>
+                <iframe width="300" height="170" src="https://www.youtube.com/embed/KzTM6Q7cpQQ?si=CKdkKrMIDsVhbVGY" title="YouTube video 1" frameBorder="0" allowFullScreen></iframe>
+                <iframe width="300" height="170" src="https://www.youtube.com/embed/oHmaga0sF-o?si=yOvnrlnIqiKkpH2p" title="YouTube video 2" frameBorder="0" allowFullScreen></iframe>
+                <iframe width="300" height="170" src="https://www.youtube.com/embed/bCoVUu8boaw?si=lJCrkIvsrh-8Esle" title="YouTube video 3" frameBorder="0" allowFullScreen></iframe>
+                <iframe width="300" height="170" src="https://www.youtube.com/embed/UrjnNGN0_GM?si=WEHZN9qXnpecyhCI" title="YouTube video 4" frameBorder="0" allowFullScreen></iframe>
                 
               </div>
           </div>
@@ -58,21 +58,22 @@ export default function Home(){
               <div id="line">.</div>
               <div id="aboutme-container">
                 <Image src="/aboutmepic.png" width={200}
-                height={200}
+                height={500}
                 alt="About me" id="aboutmepic"/>
-                <p id="aboutmetext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed quam ac lacus tempus 
-                  lobortis ac sed felis. Aliquam et ultricies nisl. Vestibulum ante ipsum primis in faucibus 
-                  orci luctus et ultrices posuere cubilia curae; Nunc vel dui et dolor lacinia placerat sed ut 
-                  leo. Nunc neque urna, vehicula non nibh rutrum, gravida interdum nunc. Quisque suscipit at nisl 
-                  non blandit. Aliquam dictum dignissim arcu, eu mollis nunc vestibulum nec. In et dui facilisis 
-                  sem posuere ultricies et et ligula.</p>
+                <p id="aboutmetext">
+                  💫 Sunt mamă și antreprenoare, cu o misiune clară: să construiesc un stil de viață sănătos și echilibrat pentru mine, familia mea și comunitatea din care fac parte. Ca FBO Forever, promovez produse și principii care sprijină sănătatea, frumusețea și vitalitatea pe termen lung.
+                  <br></br>
+                  📚 Cred cu tărie în puterea educației – atât în creșterea și formarea copiilor mei, cât și în dezvoltarea personală și financiară a celor din jur. Îmi place să inspir oamenii să facă alegeri conștiente, să învețe cum să își gestioneze mai bine resursele și să își construiască un viitor stabil.
+                  <br></br>
+                  🌱 Pentru mine, antreprenoriatul nu este doar un business, ci o cale de a lăsa în urmă valoare, echilibru și inspirație.
+                </p>
               </div>
 
           </div>
           <div id="contactme-section">
               <h2 id="contactme-title">Contact me</h2>
               <div id="line">.</div>
-              <p>Feel free to contact me at simona.mirela.puscasu@gmail.com</p>
+              <p>Contact support at support@forever-life.org</p>
               <Link href="https://www.facebook.com/simona.puscasu.90/"><Image src="/facebook.png" width={50} height={50} alt="facebook" ></Image></Link>
           </div>
       </div>
