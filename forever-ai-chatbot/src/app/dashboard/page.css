@@ -89,7 +89,7 @@ h3{
     text-align: center;
 }
 .conversation-list{
-    width:70%;
+    width:90%;
     height:100%;
     display: flex;
     align-items: center;
@@ -184,9 +184,10 @@ h3{
 }
 #conversations-container {
   display: flex;
-  height:100%;
+  height:400px;
   flex-direction: column;
   gap: 8px;
+  overflow-y: auto;
 }
 
 .conversation {
@@ -215,9 +216,12 @@ h3{
 .delete-conversation {
   background: transparent;
   border: none;
-  color: red;
+  color:grey;
   font-size: 16px;
   cursor: pointer;
+}
+.delete-conversation:hover {
+  color: red;
 }
 .modal-overlay {
   position: fixed;
@@ -339,30 +343,139 @@ h3{
     color: white;
     
 }
-@media screen and (max-width: 768px) {
-    .dashboard{
-        height:100%;
-    }
-    .dashboard-container{
-        height:100%;
-        width:90%;
-    }
-    .conversation-list{
-        width:90vw;
-        height:30vh;
-    }
-    #settings-icon{
-        height: 25px;
-        width: 25px;
-    }
-    #h1{
-        font-size:20px;
-        text-align: left;
-        position:absolute;
-        left:3%;
-    }
-    #navbar{
-        height:20vh;
-    }
-    
+
+
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #71AD8D;
+    color: white;
+    transition: 0.3s;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
+.sidebar.open {
+    left: 0;
+}
+.sidebar-header {
+    display: flex;
+    justify-content: right;
+    align-items: left;
+   
+}
+.close-sidebar {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+.sidebar-menu {
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+}
+.sidebar-menu h2{
+    text-align: left;
+    padding-bottom: 5px;
+}
+.sidebar-menu li {
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sidebar-menu li:hover {
+    text-decoration: underline;
+}
+
+/* Navbar adjustments */
+#navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-button {
+    position: absolute;
+    left: 3%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 900;
+}
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+
+}
+
+.sidebar-menu li {
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-menu li:hover {
+    text-decoration: underline;
+}
+
+/* Push bottom links to bottom */
+.sidebar-bottom-links {
+    list-style: none;
+    padding: 0;
+    margin-top: auto; /* this pushes it to the bottom */
+}
+
+.sidebar-bottom-links li {
+    padding: 8px 0;
+    font-size: 14px;
+}
+.sidebar-bottom-links li:hover {
+    text-decoration: underline;
+}
+/* Make sidebar cover more width on mobile */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 70%;
+        height: 100%;
+        top: 0;
+        left: -70%;
+        padding: 15px;
+        transition: left 0.3s ease;
+    }
+    .sidebar.open {
+        left: 0;
+    }
+    .sidebar-menu li {
+        font-size: 18px;
+        padding: 15px 0;
+    }
+}
+/* Responsive */

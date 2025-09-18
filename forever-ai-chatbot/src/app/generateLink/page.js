@@ -4,16 +4,23 @@ import './page.css';
 import Footer from '../components/footer';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { Bold, Settings, Menu, Home, Share2, Trash } from 'lucide-react';
+import Link from 'next/link';
+
 
 export default function GenerateLink() {
     const [generatedLink, setGeneratedLink] = useState("");
     const [copied, setCopied] = useState(false);
     const [userid, setUserid] = useState("");
+    const [username, setUsername] = useState('');
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const router = useRouter();
 
     useEffect(() => {
         const storedUserid = localStorage.getItem("userid");
+        const storedUsername = localStorage.getItem("username");
+        setUsername(storedUsername);
         if (!storedUserid) {
             router.push("/signin");
         } else {
@@ -47,13 +54,42 @@ export default function GenerateLink() {
             setTimeout(() => setCopied(false), 2000);
         }
     };
-
+     const handleSettings = () => router.push("/settings");
+    const generateLink = () => router.push("/generateLink");
+    const handleHome = () => router.push("/dashboard");
+    const handleGenerate1 = () => router.push("/generateLink");
     return (
         <div className="dashboard">
-            <div id="navbar">
-                <h1 id="h1">Forever Life</h1>
+            {/* Sidebar overlay for mobile */}
+            {sidebarOpen && <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)}></div>}
+
+            <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+                <div className="sidebar-header">
+                    
+                    <button className="close-sidebar" onClick={() => setSidebarOpen(false)}>×</button>
+                </div>
+                
+                <ul className="sidebar-menu">
+                    <h2>User: {username || 'User'}</h2>
+                    <li onClick={handleHome}><Home/>Home</li>
+                    <li onClick={handleGenerate1}><Share2/>Generate a link</li>
+                    <li onClick={handleSettings}><Settings /> Settings</li>
+                </ul>
+                <ul className="sidebar-bottom-links">
+                    <li><Link href="/termsAndConditions">Terms and Conditions</Link></li>
+                    <li><Link href="/privacyPolicy">Privacy Policy</Link></li>
+                </ul>
             </div>
 
+
+            {/* Navbar */}
+            <div id="navbar">
+                <button className="menu-button" onClick={() => setSidebarOpen(true)}>
+                    <Menu size={30} color="white"/>
+                </button>
+                <h1 id="h1">Forever Life</h1>
+            </div>
+            
             <div className="dashboard-container">
                 <div className="login-card">
                     <h2 className="login-title">Generate your unique invite link</h2>

@@ -3,13 +3,56 @@
 import Navbar from  "../components/navbar";
 import Footer from "../components/footer";  
 import './page.css';
-
+import { Bold, Settings, Menu, Home, Share2, Trash } from 'lucide-react';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function TermsAndConditions(){
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [username, setUsername] = useState('');
+    const router = useRouter();
+    useEffect(() => {
+        const storedUsername = localStorage.getItem("username");
+        if(storedUsername)
+            setUsername(storedUsername);
 
+    }, []);
+    const handleSettings = () => router.push("/settings");
+    const generateLink = () => router.push("/generateLink");
+    const handleHome = () => router.push("/dashboard");
+    const handleGenerate = () => router.push("/generateLink");
   return (
     <div className="termsandconditions">
-        <Navbar />
+        {/* Sidebar overlay for mobile */}
+            {sidebarOpen && <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)}></div>}
+
+            <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+                <div className="sidebar-header">
+                    
+                    <button className="close-sidebar" onClick={() => setSidebarOpen(false)}>×</button>
+                </div>
+                
+                <ul className="sidebar-menu">
+                    <h2>User: {username || 'User'}</h2>
+                    <li onClick={handleHome}><Home/>Home</li>
+                    <li onClick={handleGenerate}><Share2/>Generate a link</li>
+                    <li onClick={handleSettings}><Settings /> Settings</li>
+                </ul>
+                <ul className="sidebar-bottom-links">
+                    <li><Link href="/termsAndConditions">Terms and Conditions</Link></li>
+                    <li><Link href="/privacyPolicy">Privacy Policy</Link></li>
+                </ul>
+            </div>
+
+
+            {/* Navbar */}
+            <div id="navbar">
+                <button className="menu-button" onClick={() => setSidebarOpen(true)}>
+                    <Menu size={30} color="white"/>
+                </button>
+                <h1 id="h1">Forever Life</h1>
+            </div>
         <div className="termsandconditions-container">
             <h1 className="h1">Terms and Conditions</h1>
             <h2 className="h2_1">Effective Date: 17.09.2025</h2>
