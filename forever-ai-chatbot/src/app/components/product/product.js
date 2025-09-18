@@ -8,9 +8,9 @@ export default function Product({ picture, name, price, oldPrice, link }) {
             <img src={picture} alt={name} className="product-image" />
             <div className="product-name">{name}</div>
             <div className="product-prices">
-                <span className="product-price">${price}</span>
+                <span className="product-price">{price} RON</span>
                 {oldPrice && (
-                    <span className="product-oldprice">${oldPrice}</span>
+                    <span className="product-oldprice">{oldPrice} RON</span>
                 )}
             </div>
             <button
