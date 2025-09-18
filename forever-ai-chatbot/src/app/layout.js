@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Forever AI Chatbot",
+  title: "Forever Life",
   description: "Start discovering the FOREVER LIVING products with our AI chatbot.",
 };
 
