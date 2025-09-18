@@ -54,7 +54,7 @@ h2{
 #startbutton{
     width:300px;
     height:50px;
-    background-color: var(--secondary-background-color) ;
+    background-color: #22C55E;
     color:white;
     font-family: var(--primary-font-family);
     font-style:var(--primary-font-style);
@@ -67,54 +67,55 @@ h2{
 }
 #startbutton:hover{
     cursor: pointer;
-    background-color: white;
-    color: var(--secondary-background-color);
-    border: 2px solid var(--secondary-background-color);
+    background-color: #16a34a;
+    
     transition: all 0.3s ease;
 }
-#video-section{
-    color:black;
+#video-section, #promo-section {
+    color: black;
     background-color: var(--primary-background-color);
     font-family: var(--primary-font-family);
     font-style: var(--primary-font-style);
     font-size: 20px;
-    width:70%;
-    display:flex;
+    width: 70%;
+    display: flex;
     align-items: center;
     flex-direction: column;
-    gap:20px;
+    gap: 20px;
     text-align: left;
-    
 }
-.video-list{
+.video-list {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
 }
-iframe{
+iframe {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
-#line{
+#line {
     flex: 1;
-    height: auto; 
-    width:100%;
-    background-color: lightgray; 
+    height: auto;
+    width: 100%;
+    background-color: lightgray;
     margin: 0 8px;
-    font-size:1.5px;
+    font-size: 1.5px;
 }
-#video-link{
+#video-link {
     text-decoration: none;
     font-size: 17px;
     color: grey;
 }
-#video-link:hover{
+#video-link:hover {
     color: var(--secondary-background-color);
 }
-#video-title{
+#video-title, #promo-title {
     width: 100%;
     text-align: left;
+}
+#promo-section {
+    margin-top: 30px;
 }
 #aboutme-section{
     width:70%;

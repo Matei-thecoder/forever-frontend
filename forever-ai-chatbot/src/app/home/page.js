@@ -6,6 +6,8 @@ import './page.css';
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+
+import Product from "../components/product/product";
 import Link from "next/link";
 
 import Image from "next/image";
@@ -41,9 +43,37 @@ export default function Home(){
               <button id="startbutton" onClick={signin}>Login</button>
               <button id="startbutton" onClick={guestomode}>Enter Guestmode</button>
           </div>
+          {/* Promotional Packages Section */}
+          <div id="promo-section">
+              <h2 id="promo-title">Promotional Packages : -15%</h2>
+              <div id="line">.</div>
+              <div className="video-list">
+                <Product
+                  picture="/aTouchOfFOrever.png"
+                  name="A touch of Forever"
+                  price={2626.68}
+                  oldPrice={3090.19}
+                  link="https://thealoeveraco.shop/t8oHtz0J"
+                />
+                <Product
+                  picture="/mustTryKit.png"
+                  name="Must Try Kit Alb/Albastru"
+                  price={732.56}
+                  oldPrice={861.85}
+                  link="https://thealoeveraco.shop/CMSKKcWU"
+                />
+                <Product
+                  picture="/foreverRetailPack.png"
+                  name="Forever Retail Pack"
+                  price={2732.20}
+                  oldPrice={3214.35}
+                  link="https://thealoeveraco.shop/2LJ65YF3"
+                />
+              </div>
+          </div>
+
           <div id="video-section">
               <h2 id="video-title">See our educational videos selection here. <a href='/videos' id="video-link">See more...</a></h2>
-
               <div id="line">.</div>
               <div className="video-list">
                 <iframe width="300" height="170" src="https://www.youtube.com/embed/KzTM6Q7cpQQ?si=CKdkKrMIDsVhbVGY" title="YouTube video 1" frameBorder="0" allowFullScreen></iframe>
@@ -53,6 +83,8 @@ export default function Home(){
                 <iframe width="300" height="170" src="https://www.youtube.com/embed/iFLft-fgcAQ?si=UjpFNm8yBooSUZIF" title="YouTube video 4" frameBorder="0" allowFullScreen></iframe>
               </div>
           </div>
+
+          
 
           <div id="aboutme-section">
               <h2 id="aboutme-title">About me</h2>
