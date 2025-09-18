@@ -45,29 +45,36 @@ export default function Home(){
           </div>
           {/* Promotional Packages Section */}
           <div id="promo-section">
-              <h2 id="promo-title">Promotional Packages : -15%</h2>
+              <h2 id="promo-title">Promotional Packages</h2>
               <div id="line">.</div>
               <div className="video-list">
                 <Product
-                  picture="/aTouchOfForever.png"
-                  name="A touch of Forever"
-                  price={2626.68}
-                  oldPrice={3090.19}
-                  link="https://thealoeveraco.shop/t8oHtz0J"
+                  picture="/startYourJouney.png"
+                  name="Start Your Journey Pack Vanilla"
+                  price={1656.85}
+                  oldPrice={2054.33}
+                  link="https://foreverliving.com/join/rom/ro-ro/products/693-SYJ-BEST-SELLERS-VANILLA"
                 />
                 <Product
-                  picture="/mustTryKit.png"
-                  name="Must Try Kit Alb/Albastru"
-                  price={732.56}
-                  oldPrice={861.85}
-                  link="https://thealoeveraco.shop/CMSKKcWU"
+                  picture="/startYourJouneyC.png"
+                  name="Start Your Journey Pack Chocolate"
+                  price={1656.85}
+                  oldPrice={2054.33}
+                  link="https://foreverliving.com/join/rom/ro-ro/products/693A-SYJ-BEST-SELLERS-CHOCOLATE"
                 />
                 <Product
-                  picture="/foreverRetailPack.png"
-                  name="Forever Retail Pack"
-                  price={2732.20}
-                  oldPrice={3214.35}
-                  link="https://thealoeveraco.shop/2LJ65YF3"
+                  picture="/startYourJourneyS.png"
+                  name="START YOUR JOURNEY PACK : SPORT & WELLNESS"
+                  price={1656.85}
+                  oldPrice={2054.33}
+                  link="https://foreverliving.com/join/rom/ro-ro/products/692-START-YOUR-JOUR-SPORTWELLNESS"
+                />
+                 <Product
+                  picture="/startYourJourneySkin.png"
+                  name="START YOUR JOURNEY PACK – SKIN & BODY"
+                  price={1656.85}
+                  oldPrice={2054.33}
+                  link="https://foreverliving.com/join/rom/ro-ro/products/694-START-YOUR-JOUR-SKINBODY"
                 />
               </div>
           </div>
