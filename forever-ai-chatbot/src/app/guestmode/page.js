@@ -130,7 +130,16 @@ export default function Guestmode() {
       }
     })();
   };
-
+  const forceScrollBottom = () => {
+  setTimeout(() => {
+    if (contentRef.current) {
+      contentRef.current.scrollTo({
+        top: contentRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, 100); // small delay to wait for DOM update
+};
   return (
     <div className='chat'>
       <div id="navbar-chat">
@@ -181,6 +190,8 @@ export default function Guestmode() {
                     onKeyDown={(e) => {
                         if (e.key === "Enter" && !e.shiftKey) {
                             handleSubmit(e);
+                            forceScrollBottom();
+                            e.currentTarget.blur();
                         }
                     }}
                 />

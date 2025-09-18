@@ -9,11 +9,13 @@
     --primary-font-style:"normal";
 }
 
-
+html, body {
+  overscroll-behavior: none;
+}
 
 .chat{
     width:100vw;
-    height:100vh;
+    height:100dvh;
     background-color:var(--secondary-background-color) ;
     display:flex;
     align-items: center;
@@ -40,20 +42,26 @@
     font-style: normal;
 
 }
-#content{
-    width:70%;
-   
-    height: 70%;
-    
-
+#content {
+  height: 70%;
+  width: 80%;
+  margin: 0 auto;              /* center horizontally */
+  background-color: #f9fafb;   /* same as bg-gray-50 */
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
 }
-#input{
-    width:70%;
-    height:15%;
-    
-    
 
+#input {
+  height: 15%;
+  width: 80%;
+  margin: 0 auto;              /* center horizontally */
+  margin-top: 0.5rem;
 }
+
 #sendbutton{
     margin-bottom: 10px;
 }
@@ -76,12 +84,13 @@
     color:black
 }
 @media screen and (max-width: 640px) {
-    #content {
-        width: 95%;
-        height: 62%;
-    }
-    #input {
-        width: 95%;
-        height: 23%;
-    }
+  #content,
+  #input {
+    width: 95%;
+  }
+
+  #h1 {
+    font-size: 24px;
+  }
 }
+
