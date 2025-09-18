@@ -49,7 +49,7 @@ export default function Home(){
               <div id="line">.</div>
               <div className="video-list">
                 <Product
-                  picture="/aTouchOfFOrever.png"
+                  picture="/aTouchOfForever.png"
                   name="A touch of Forever"
                   price={2626.68}
                   oldPrice={3090.19}
