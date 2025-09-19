@@ -31,7 +31,38 @@ export default function Dashboard() {
         setUserid(storedUserid);
         setUsername(storedUsername);
         setTier(storedTier);
+        const getUserData = async ()=>{
+            const storedUserid = localStorage.getItem("userid");
+            try{
+                console.log(storedUserid);
+                const res = await fetch(`https://forever-backend-production.up.railway.app/getuserdata`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userid: storedUserid })
+                })
+                const data = await res.json();
+                if(data.message=="error")
+                {
+                    console.log("error");
+                    alert("Server error");
+                    return;
+                }
+                else
+                {
+                    
+                    setUsername(data.data.username);
+                    
+                    setTier(data.data.tier);
+                    
+                }
+            }catch(e){
+                console.log(e);
+                alert("An error has occured");
+            }
 
+        }
         const fetchConversations = async () => {
             const res = await fetch("https://forever-backend-production.up.railway.app/chat/usermode/getAllConversations", {
                 method: "POST",
@@ -43,7 +74,11 @@ export default function Dashboard() {
             setConversationLoading(false);
         }
 
-        if (storedUserid) fetchConversations();
+        if (storedUserid)
+            {
+                getUserData();
+                fetchConversations();
+            } 
         else router.push('/signin');
     }, [router]);
 
